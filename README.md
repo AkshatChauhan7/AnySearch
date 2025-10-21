@@ -1,8 +1,6 @@
-# ExaSearch - Modern Web Search UI
+# AnySearch - Modern Web Search UI
 
 A professional search application built with Flask that demonstrates integration with the Exa search API. This project showcases modern web development techniques, clean UI/UX design, and proper API integration.
-
-![ExaSearch Screenshot](https://via.placeholder.com/800x400?text=ExaSearch+Screenshot)
 
 ## Features
 
@@ -21,8 +19,8 @@ A professional search application built with Flask that demonstrates integration
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/exasearch.git
-   cd exasearch
+   git clone https://github.com/AkshatChauhan7/AnySearch.git
+   cd Anysearch
    ```
 
 2. Install dependencies:
@@ -112,5 +110,4 @@ This application can be deployed to various platforms:
 - **API:** Exa Search API
 
 ## Author
-
 AKSHAT CHAUHAN
