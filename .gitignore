@@ -51,3 +51,5 @@ Thumbs.db
 dev_*.py
 *_dev.*
 run.py
+run_app.bat
+run_app.ps1
