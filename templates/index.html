@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AnySearch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/static/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <div class="container">
+          <h1 class="app-title">Any<span class="text-primary fw-bold">Search</span></h1>
+          <p class="app-subtitle">Intelligent search engine powered by Exa API</p>
+        </div>
+      </header>
+
+    <main class="container">
+      <div class="search-container">
+        <form action="/search" method="get" class="search-card">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, msg in messages %}
+                <div class="alert alert-{{category}} fade-in" role="alert">
+                  <i class="bi bi-info-circle-fill me-2"></i>
+                  {{msg}}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+
+          <div class="search-box-container">
+            <div class="search-icon">
+              <i class="bi bi-search"></i>
+            </div>
+            <input 
+              id="query" 
+              name="query" 
+              type="search" 
+              class="search-input" 
+              placeholder="What are you looking for today?" 
+              autocomplete="off"
+              autofocus>
+          </div>
+
+          <div class="advanced-options">
+            <details>
+              <summary>Advanced Options</summary>
+              <div class="p-3">
+                <div class="mb-3">
+                  <label for="domains" class="form-label">
+                    <i class="bi bi-globe2 me-1"></i>
+                    Domain Filters
+                  </label>
+                  <input id="domains" name="domains" type="text" class="form-control" 
+                    placeholder="Comma-separated domains, e.g. tiktok.com, example.org">
+                  <div class="form-text">
+                    <i class="bi bi-info-circle me-1"></i>
+                    Leave empty to search across all domains
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <div class="search-actions">
+            <button class="search-button" type="submit">
+              <span class="search-button-text">Search</span>
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+
+        <div class="feature-cards">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="bi bi-lightning-charge"></i>
+            </div>
+            <h3>Fast Results</h3>
+            <p>Powered by Exa's advanced search</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="bi bi-funnel"></i>
+            </div>
+            <h3>Precise Filtering</h3>
+            <p>Focus your search on specific websites</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="bi bi-code-square"></i>
+            </div>
+            <h3>Demo Project</h3>
+            <p>A showcase of modern web development</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <div class="container">
+        <p>Built with Flask, Bootstrap, and Exa API</p>
+      </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.querySelector('.search-input');
+      searchInput.addEventListener('focus', function() {
+        document.querySelector('.search-box-container').classList.add('focused');
+      });
+      searchInput.addEventListener('blur', function() {
+        document.querySelector('.search-box-container').classList.remove('focused');
+      });
+    });
+    </script>
+  </body>
+</html>
